@@ -1,0 +1,31 @@
+﻿syntax = "proto2";
+
+option csharp_namespace = "BE.Data.Contract";
+
+import "common/Decimal.proto";
+
+
+message PredictBonusResponse {
+	optional uint64 ResultFlags = 1 [default = 0]; 
+	//repeated Transaction Transactions = 2;
+	//repeated BonusWallet BonusWallets = 3;
+	optional int64 DigitalUserID = 4 [default = 0]; // for GmCore
+	optional int64 DomainID = 5 [default = 0]; // for GmCore
+	optional string UniversalID = 6;
+
+	/// <summary>
+	/// The total amount of available bonus wallets
+	/// The currency of TotalAmount is specified by PredictBonusRequest.RealMoneyCurrency
+	/// This field is only returned in WalletDebit/WalletCredit txn
+	/// </summary>
+	optional NotNullDecimal RemainingTotalStandardBonusAmount = 7;
+	optional NotNullDecimal TotalLockedAmount = 8;
+	optional string LiteralUserID = 9; // for GMSlim
+
+	optional string GicTransID = 10;
+	optional string PreTransID = 11;
+	optional string ExtraData = 12;
+	optional string GameSessionID = 13;
+}
+
+

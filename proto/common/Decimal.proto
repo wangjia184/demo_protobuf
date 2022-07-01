@@ -1,0 +1,17 @@
+﻿syntax = "proto2";
+
+
+option csharp_namespace = "BE.Data";
+
+// https://github.com/protobuf-net/protobuf-net/blob/3.0.62/src/protobuf-net.Core/Internal/PrimaryTypeProvider.Decimal.cs
+message NotNullDecimal {
+  optional uint64 Low = 1; 
+  optional uint32 High = 2; 
+  optional uint32 SignScale = 3; 
+}
+
+message NullableDecimal {
+  optional uint64 Low = 1; 
+  optional uint32 High = 2; 
+  optional uint32 SignScale = 3; 
+}
